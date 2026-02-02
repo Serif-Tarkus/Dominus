@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://bnwid6j54tscj"]
+
+[ext_resource type="Script" uid="uid://bhygfv0kqv4vl" path="res://custom_resources/card.gd" id="1_637pk"]
+[ext_resource type="Resource" uid="uid://cgk0ai1f5sptu" path="res://characters/player/cards/player_sword_attack.tres" id="2_k1gmq"]
+[ext_resource type="Script" uid="uid://dx322t8nuqu7x" path="res://custom_resources/card_pile.gd" id="2_s7xmy"]
+[ext_resource type="Resource" uid="uid://cij8e3lwq56r8" path="res://characters/player/cards/player_block.tres" id="3_jpn6p"]
+[ext_resource type="Resource" uid="uid://d0vb6t2va2de4" path="res://characters/player/cards/player_flirt.tres" id="4_jpn6p"]
+
+[resource]
+script = ExtResource("2_s7xmy")
+cards = Array[ExtResource("1_637pk")]([ExtResource("2_k1gmq"), ExtResource("2_k1gmq"), ExtResource("2_k1gmq"), ExtResource("2_k1gmq"), ExtResource("3_jpn6p"), ExtResource("3_jpn6p"), ExtResource("3_jpn6p"), ExtResource("3_jpn6p"), ExtResource("4_jpn6p"), ExtResource("4_jpn6p")])
+metadata/_custom_type_script = "uid://dx322t8nuqu7x"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://k6r0xnsqi43g"]
+
+[ext_resource type="PackedScene" uid="uid://is444q80rddm" path="res://Scenes/enemies/leorid_rogue/leorid_rogue_ai.tscn" id="1_ourcs"]
+[ext_resource type="Script" uid="uid://h8v2aucsdyfr" path="res://custom_resources/enemy_stats.gd" id="1_sx0sh"]
+
+[resource]
+script = ExtResource("1_sx0sh")
+ai = ExtResource("1_ourcs")
+character_name = "Leorid Rogue"
+max_health = 15
+max_lust = 10
+metadata/_custom_type_script = "uid://7d1dvtny4kko"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d0vb6t2va2de4"]
+
+[ext_resource type="Texture2D" uid="uid://dqebe4ofvy85n" path="res://Art/Card/Flirt Card.png" id="1_osgxn"]
+[ext_resource type="Script" uid="uid://crh3gewqdxl4m" path="res://characters/player/cards/player_lust.gd" id="2_osgxn"]
+
+[resource]
+script = ExtResource("2_osgxn")
+id = "player_flirt"
+type = 1
+target = 1
+cost = 1
+card_art = ExtResource("1_osgxn")
+card_description = "[center] Inflict 4 Lust.[/center]"
+metadata/_custom_type_script = "uid://bhygfv0kqv4vl"

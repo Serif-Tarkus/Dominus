@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cij8e3lwq56r8"]
+
+[ext_resource type="Texture2D" uid="uid://cygu0dgvp2kn2" path="res://Art/Card/Defend Card.png" id="1_coy43"]
+[ext_resource type="Script" uid="uid://cv0l3lckac1wd" path="res://characters/player/cards/player_block.gd" id="2_coy43"]
+
+[resource]
+script = ExtResource("2_coy43")
+id = "player_block"
+type = 1
+cost = 1
+card_art = ExtResource("1_coy43")
+card_description = "[center]Gain 5 Guard.[/center]"
+metadata/_custom_type_script = "uid://bhygfv0kqv4vl"

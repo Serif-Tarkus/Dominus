@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cgk0ai1f5sptu"]
+
+[ext_resource type="Texture2D" uid="uid://dqb2kd6826xol" path="res://Art/Card/Slash Card.png" id="1_1ttwr"]
+[ext_resource type="Script" uid="uid://doxlt5wtirje8" path="res://characters/player/cards/player_sword_attack.gd" id="2_1ttwr"]
+
+[resource]
+script = ExtResource("2_1ttwr")
+id = "player_sword_attack"
+target = 1
+cost = 1
+card_art = ExtResource("1_1ttwr")
+card_description = "[center]Deal 5 damage.[/center]"
+metadata/_custom_type_script = "uid://bhygfv0kqv4vl"

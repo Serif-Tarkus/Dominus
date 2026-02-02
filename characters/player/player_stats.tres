@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=3 format=3 uid="uid://dwa8obo5ltsm5"]
+
+[ext_resource type="Script" uid="uid://m8stji3x54o5" path="res://custom_resources/character_stats.gd" id="1_20yp8"]
+[ext_resource type="Resource" uid="uid://bnwid6j54tscj" path="res://characters/player/player_starting_deck.tres" id="2_rbk52"]
+
+[resource]
+script = ExtResource("1_20yp8")
+starting_deck = ExtResource("2_rbk52")
+cards_per_turn = 5
+base_stamina = 3
+stamina_rate = 3
+character_name = "Michael"
+max_health = 5
+max_lust = 20
+metadata/_custom_type_script = "uid://m8stji3x54o5"
