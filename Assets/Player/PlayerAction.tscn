@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://8a6kuhxcys8p"]
+
+[ext_resource type="Script" uid="uid://dqrj5rqgitgg" path="res://Assets/Player/player_action.gd" id="1_bgyh5"]
+[ext_resource type="Texture2D" uid="uid://dmhcugef12h80" path="res://Art/Player/Combat/Player_Base_Overworld_Spritesheet.png" id="1_sgtxa"]
+[ext_resource type="Resource" uid="uid://dwa8obo5ltsm5" path="res://characters/player/player_stats.tres" id="2_dh88m"]
+[ext_resource type="PackedScene" uid="uid://dg8hqsm1ige48" path="res://Scenes/UI/stats_ui.tscn" id="3_bgyh5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0sdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sgtxa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgyh5"]
+size = Vector2(90, 52.5)
+
+[node name="PlayerAction" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_bgyh5")
+stats = ExtResource("2_dh88m")
+metadata/player_action_about = "This is the player that is used for checking stats, combat, and skill checks. Essentially, this holds the Player Statsheet"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.33, 0.33)
+sprite_frames = SubResource("SpriteFrames_x0sdu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 79.25)
+shape = SubResource("RectangleShape2D_bgyh5")
+
+[node name="StatsUI" parent="." instance=ExtResource("3_bgyh5")]
+offset_left = -88.0
+offset_top = 113.0
+offset_right = 90.0
+offset_bottom = 145.0
