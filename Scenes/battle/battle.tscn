@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://dbq2orndxtwv3"]
+
+[ext_resource type="Texture2D" uid="uid://cylirk7oaq1mn" path="res://Art/Backgrounds/Combat/swamp_1_background.png" id="1_3qw02"]
+[ext_resource type="Script" uid="uid://cge0yr3vujrdk" path="res://Scenes/battle/battle.gd" id="1_o5ms1"]
+[ext_resource type="Texture2D" uid="uid://b75ydwmt8gb3o" path="res://Art/Backgrounds/Combat/swamp_1_foreground.png" id="2_aqr0y"]
+[ext_resource type="PackedScene" uid="uid://ddb3614rjf36d" path="res://Scenes/enemies/leorid_rogue.tscn" id="3_dv1vr"]
+[ext_resource type="Script" uid="uid://dntkkqq33w0m2" path="res://Scenes/card_ui/hand.gd" id="3_wqg5c"]
+[ext_resource type="Resource" uid="uid://k6r0xnsqi43g" path="res://characters/enemies/leorid_rogue/leorid_rogue.tres" id="4_8q1pg"]
+[ext_resource type="PackedScene" uid="uid://dsskt5p7wcom3" path="res://Scenes/card_target_selector/card_target_selector.tscn" id="4_ymrwt"]
+[ext_resource type="Script" uid="uid://csc4f7i7w1sc6" path="res://Scenes/enemies/enemy_handler.gd" id="5_xldij"]
+[ext_resource type="Script" uid="uid://cdh85qsretgi5" path="res://Scenes/UI/battle_ui.gd" id="7_xldij"]
+[ext_resource type="Script" uid="uid://dr5frofke7511" path="res://characters/player/player_handler.gd" id="9_8q1pg"]
+[ext_resource type="PackedScene" uid="uid://8a6kuhxcys8p" path="res://Assets/Player/PlayerAction.tscn" id="9_u4h1j"]
+[ext_resource type="PackedScene" uid="uid://cn8thu5c2uwky" path="res://Scenes/UI/stamina_ui.tscn" id="11_dv1vr"]
+[ext_resource type="Resource" uid="uid://dwa8obo5ltsm5" path="res://characters/player/player_stats.tres" id="12_8q1pg"]
+[ext_resource type="Theme" uid="uid://i2qtan1kjruu" path="res://Themes/main_theme.tres" id="13_xwsv1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qw02"]
+size = Vector2(1287, 479)
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_o5ms1")
+char_stats = ExtResource("12_8q1pg")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_3qw02")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Foreground" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_aqr0y")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(641.5, 239.5)
+shape = SubResource("RectangleShape2D_3qw02")
+debug_color = Color(0, 0.6, 0.69803923, 0.17254902)
+
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("5_xldij")
+
+[node name="LeoridRogue" parent="EnemyHandler" instance=ExtResource("3_dv1vr")]
+position = Vector2(890, 333)
+stats = ExtResource("4_8q1pg")
+
+[node name="PlayerAction" parent="." instance=ExtResource("9_u4h1j")]
+position = Vector2(207, 352)
+
+[node name="CardTargetSelector" parent="." instance=ExtResource("4_ymrwt")]
+
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("9_8q1pg")
+hand = NodePath("../BattleUI/Hand")
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+script = ExtResource("7_xldij")
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -463.0
+offset_top = -200.0
+offset_right = 637.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8894946, 1)
+size_flags_vertical = 8
+alignment = 1
+script = ExtResource("3_wqg5c")
+char_stats = ExtResource("12_8q1pg")
+
+[node name="StaminaUI" parent="BattleUI" instance=ExtResource("11_dv1vr")]
+char_stats = ExtResource("12_8q1pg")
+
+[node name="EndTurnButton" type="Button" parent="BattleUI"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -55.0
+offset_right = -3.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("13_xwsv1")
+text = "End Turn"

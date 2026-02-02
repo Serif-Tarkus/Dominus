@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddb3614rjf36d"]
+
+[ext_resource type="Texture2D" uid="uid://mywwvp75tea2" path="res://Art/Enemy/Leorid_Rogue.png" id="1_i6dss"]
+[ext_resource type="Script" uid="uid://bxmoxntilejvk" path="res://Scenes/enemies/enemy.gd" id="1_wbe2w"]
+[ext_resource type="Texture2D" uid="uid://dwchtxe6w2jcw" path="res://Art/UI/Icons/fc648.png" id="2_1nh5m"]
+[ext_resource type="PackedScene" uid="uid://dg8hqsm1ige48" path="res://Scenes/UI/stats_ui.tscn" id="3_wbe2w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jjjy4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i6dss")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv1vr"]
+size = Vector2(90, 218)
+
+[node name="LeoridRogue" type="Area2D" groups=["enemies"]]
+collision_layer = 4
+script = ExtResource("1_wbe2w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.075, 0.075)
+sprite_frames = SubResource("SpriteFrames_jjjy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+shape = SubResource("RectangleShape2D_dv1vr")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(0, -131)
+texture = ExtResource("2_1nh5m")
+
+[node name="StatsUI" parent="." instance=ExtResource("3_wbe2w")]
+offset_left = -93.33333
+offset_top = 117.0
+offset_right = 84.66667
+offset_bottom = 149.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

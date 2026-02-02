@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://is444q80rddm"]
+
+[ext_resource type="Script" uid="uid://dea12wmqkjp1j" path="res://Scenes/enemies/enemy_action_picker.gd" id="1_ukles"]
+[ext_resource type="Script" uid="uid://j3sulbvmeuk3" path="res://Scenes/enemies/leorid_rogue/leorid_attack_action.gd" id="2_icqcl"]
+[ext_resource type="Script" uid="uid://gy0f56uot833" path="res://Scenes/enemies/leorid_rogue/leorid_block_action.gd" id="3_oireo"]
+[ext_resource type="Script" uid="uid://bol7whec2eecl" path="res://Scenes/enemies/leorid_rogue/leorid_lust_action.gd" id="4_sqno4"]
+
+[node name="LeoridRogueAI" type="Node"]
+script = ExtResource("1_ukles")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_icqcl")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("3_oireo")
+type = 1
+chance_weight = 1.0
+
+[node name="LustAction" type="Node" parent="."]
+script = ExtResource("4_sqno4")
