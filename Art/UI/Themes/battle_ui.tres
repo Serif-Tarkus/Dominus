@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c30vbwq7qjb4b"]
+
+[ext_resource type="FontFile" uid="uid://c2bybpj1dnu1p" path="res://Art/Typefaces/Sriracha-Regular.ttf" id="1_hi0uj"]
+[ext_resource type="StyleBox" uid="uid://dxgs4ogk5eytn" path="res://Art/UI/Themes/purple_button.tres" id="2_7nkxp"]
+
+[resource]
+Button/colors/font_color = Color(16.638432, 16.638432, 16.638432, 1)
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_hi0uj")
+Button/styles/disabled = ExtResource("2_7nkxp")
+Button/styles/normal = ExtResource("2_7nkxp")
+ProgressBar/colors/font_color = Color(0.5944321, 6.738305e-07, 0.30009186, 1)
+ProgressBar/fonts/font = ExtResource("1_hi0uj")
+ProgressBar/styles/fill = null
